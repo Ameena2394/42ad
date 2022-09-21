@@ -6,18 +6,18 @@
 /*   By: ammustaf <ammustaf@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 10:51:12 by ammustaf          #+#    #+#             */
-/*   Updated: 2022/09/19 14:04:23 by ammustaf         ###   ########.fr       */
+/*   Updated: 2022/09/21 10:24:41 by ammustaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isalpha( int c)
 {
-	return ((c >= 'A' && c <= 'z') || (c >= 'a' && c <= 'z'));
+	return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
 }
 
 #include <stdio.h>
 
 int	main(void)
 {
-	printf("%d\n", ft_isalpha('a'));
+	printf("%d\n", ft_isalpha('h'));
 }
