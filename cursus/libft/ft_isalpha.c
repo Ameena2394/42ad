@@ -10,4 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+int	ft_isalpha( int c)
+{
+	return ((c >= 'A' && c <= 'z') || (c >= 'a' && c <= 'z'));
+}
+
+#include <stdio.h>
+
+int	main(void)
+{
+	printf("%d\n", ft_isalpha('a'));
+}
