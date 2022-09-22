@@ -6,8 +6,11 @@
 /*   By: ammustaf <ammustaf@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 10:40:42 by ammustaf          #+#    #+#             */
-/*   Updated: 2022/09/21 10:40:44 by ammustaf         ###   ########.fr       */
+/*   Updated: 2022/09/22 19:26:15 by ammustaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
+int	ft_isascii(int c)
+{
+	return (c >= 0 && c < 128);
+}

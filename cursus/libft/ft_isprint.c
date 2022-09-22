@@ -6,8 +6,11 @@
 /*   By: ammustaf <ammustaf@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 10:40:53 by ammustaf          #+#    #+#             */
-/*   Updated: 2022/09/21 10:40:55 by ammustaf         ###   ########.fr       */
+/*   Updated: 2022/09/22 19:30:41 by ammustaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
+int	ft_isprint(int c)
+{
+	return (c >= 32 && c <= 126);
+}
