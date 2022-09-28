@@ -32,4 +32,3 @@ int	ft_atoi(char *str)
 	}
 	return (res * sign);
 }
-

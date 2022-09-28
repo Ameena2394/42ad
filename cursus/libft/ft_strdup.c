@@ -10,4 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+char	*ft_strdup(const char *s)
+{
+	char	*dup;
+	size_t	size;
 
+	size = ft_strlen(s) + 1;
+	dup = malloc(size);
+	if (!dup)
+		return (NULL);
+	ft_strlcpy(dup, s, size);
+	return (dup);
+}
