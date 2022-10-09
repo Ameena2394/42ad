@@ -9,6 +9,7 @@
 /*   Updated: 2022/09/21 18:17:46 by ammustaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -24,13 +25,17 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		str = (char*)malloc(sizeof(char) * (len1 + len2 + 1));
 		if (str == NULL)
 			return (NULL);
-		i = -1;
-		while (s1[++i])
+		i = 0;
+		while (s1[i])
+{
 			str[i] = s1[i];
-		i = -1;
-		while (s2[++i])
+i++;
+}
+		i = 0;
+		while (s2[i])
 		{
 			str[len1] = s2[i];
+i++;
 			len1++;
 		}
 		str[len1] = '\0';

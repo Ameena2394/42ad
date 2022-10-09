@@ -9,19 +9,17 @@
 /*   Updated: 2022/09/21 10:46:43 by ammustaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *str, int c)
 {
-	char	*str;
-
-	str = (char *)s;
-	while (*str != c)
+	while (*str != '\0')
 	{
-		if (*str == '\0')
+		if (*str == c)
 		{
-			return (NULL);
+			return (char *) str;
 		}
 		str++;
 	}
-	return (str);
+	return NULL;
 }

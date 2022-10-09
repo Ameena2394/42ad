@@ -9,16 +9,25 @@
 /*   Updated: 2022/09/21 10:51:49 by ammustaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_strdup(const char *src)
 {
-	char	*dup;
-	size_t	size;
+	int size;
+	int i;
+	char *src1;
 
-	size = ft_strlen(s) + 1;
-	dup = malloc(size);
-	if (!dup)
-		return (NULL);
-	ft_strlcpy(dup, s, size);
-	return (dup);
+	size = ft_strlen(src);
+	i = 0;
+	src1 = (char *)malloc(sizeof(char) * (size + 1));
+
+	if (src1[i] = '\0')
+		return NULL;
+	while (i <= size)
+	{
+		src1[i] = src[i];
+		i++;
+	}
+	src1[i] = '\0';
+	return (src1);
 }

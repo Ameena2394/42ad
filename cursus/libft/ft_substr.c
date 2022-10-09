@@ -9,14 +9,17 @@
 /*   Updated: 2022/09/21 18:18:16 by ammustaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*new_str;
 	size_t	i;
 	size_t	j;
+	
+	new_str = (char *)malloc(len + 1);
 
-	if (!s || !(new_str = (char *)malloc(len + 1)))
+	if (!new_str)
 		return (0);
 	i = start;
 	j = 0;
