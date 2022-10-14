@@ -11,7 +11,7 @@
 # **************************************************************************** #
 NAME = libft.a
 
-MAIN = ft_bzero.c\
+MAINFILES = ft_bzero.c\
 	ft_strlen.c\
 	ft_strncmp.c\
 	ft_strdup.c\
@@ -23,7 +23,6 @@ MAIN = ft_bzero.c\
 	ft_isalnum.c\
 	ft_toupper.c\
 	ft_tolower.c\
-	ft_strstr.c\
 	ft_strnstr.c\
 	ft_strlcat.c\
 	ft_memset.c\
@@ -41,12 +40,12 @@ MAIN = ft_bzero.c\
 	ft_striteri.c\
 	ft_strmapi.c\
 	ft_strjoin.c\
-	ft_islower.c\
-	ft_isupper.c\
+	ft_tolower.c\
+	ft_toupper.c\
 	ft_itoa.c\
 	ft_split.c\
 
-OBJS = $(MAIN: .c = .o)
+OBJS = $(MAINFILES: .c = .o)
 
 FLAGS = -Wall -Wextra -Werror
 
@@ -55,3 +54,20 @@ CC = gcc
 HEADER = libft.h
 
 all: $(NAME)
+
+$(NAME): $(OBJS)
+	   $(CC) $@ $^
+
+%.o:%.c
+			$(CC) $(FLAGS) -c -o $@ $^
+
+clean:
+			rm -rf $(OBJS) $(NAME)
+
+fclean:		clean
+			rm -rf $(NAME)
+
+re:			fclean all
+
+.PHONY:		all clean fclean re
+

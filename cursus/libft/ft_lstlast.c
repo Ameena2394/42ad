@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ammustaf <ammustaf@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: ammustaf <ammustaf@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/21 10:42:11 by ammustaf          #+#    #+#             */
-/*   Updated: 2022/09/21 10:42:13 by ammustaf         ###   ########.fr       */
+/*   Created: 2022/10/11 12:53:56 by ammustaf          #+#    #+#             */
+/*   Updated: 2022/10/11 12:53:56 by ammustaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-void	ft_bzero(void *str, unsigned int n)
+t_list	*ft_lstlast(t_list *lst)
 {
-	int	i;
-	
-	i = 0;
-	while (i < n)
+	if (lst)
 	{
-		((char *)str)[i] = 0;
-		i++;
+		while (lst->next)
+			lst = lst->next;
+		return (lst);
 	}
 }
