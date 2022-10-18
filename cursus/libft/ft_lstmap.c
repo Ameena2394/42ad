@@ -1,21 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ammustaf <ammustaf@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: ammustaf <ammustaf@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/21 10:46:17 by ammustaf          #+#    #+#             */
-/*   Updated: 2022/09/21 10:46:18 by ammustaf         ###   ########.fr       */
+/*   Created: 2022/10/11 12:54:00 by ammustaf          #+#    #+#             */
+/*   Updated: 2022/10/11 12:54:00 by ammustaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int ft_toupper(int c)
-{
-	if ((c >= 'a' && c <= 'z'))
-		return (c - 32);
-	else
-		return (c);
-}

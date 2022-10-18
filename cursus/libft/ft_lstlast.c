@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ammustaf <ammustaf@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: ammustaf <ammustaf@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/21 10:51:48 by ammustaf          #+#    #+#             */
-/*   Updated: 2022/09/21 10:51:49 by ammustaf         ###   ########.fr       */
+/*   Created: 2022/10/11 12:53:56 by ammustaf          #+#    #+#             */
+/*   Updated: 2022/10/11 12:53:56 by ammustaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-char	*ft_strdup(const char *src)
+t_list	*ft_lstlast(t_list *lst)
 {
-	int size;
-	int i;
-	char *src1;
-
-	size = ft_strlen(src);
-	i = 0;
-	src1 = (char *)malloc(sizeof(char) * (size + 1));
-
-	if (src1[i] = '\0')
-		return NULL;
-	while (i <= size)
+	if (lst)
 	{
-		src1[i] = src[i];
-		i++;
+		while (lst->next)
+			lst = lst->next;
+		return (lst);
 	}
-	src1[i] = '\0';
-	return (src1);
 }

@@ -9,21 +9,21 @@
 /*   Updated: 2022/09/21 10:48:10 by ammustaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-void	*ft_memchr(const void *arr, int c, size_t n)
+void	*ft_memchr(const void *str, int c, size_t n)
 {
-	unsigned char	*str;
-	unsigned char	ch;
 	size_t			i;
 
 	i = 0;
-	str = (unsigned char *)arr;
-	ch = (unsigned char)c;
+	unsigned char *s = (unsigned char *) str;
+	unsigned char d = (unsigned char) c;
+
 	while (i < n)
 	{
-		if (str[i] == ch)
-			return (str + i);
+		if (s[i] == d)
+			return (s + i);
 		i++;
 	}
-	return (NULL);
+	return 0;
 }

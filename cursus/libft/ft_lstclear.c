@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ammustaf <ammustaf@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: ammustaf <ammustaf@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/21 10:51:48 by ammustaf          #+#    #+#             */
-/*   Updated: 2022/09/21 10:51:49 by ammustaf         ###   ########.fr       */
+/*   Created: 2022/10/11 12:53:04 by ammustaf          #+#    #+#             */
+/*   Updated: 2022/10/11 12:53:04 by ammustaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-char	*ft_strdup(const char *src)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	int size;
-	int i;
-	char *src1;
+	t_list *tmp;
 
-	size = ft_strlen(src);
-	i = 0;
-	src1 = (char *)malloc(sizeof(char) * (size + 1));
-
-	if (src1[i] = '\0')
-		return NULL;
-	while (i <= size)
+	if (lst)
 	{
-		src1[i] = src[i];
-		i++;
+		while (*lst)
+		{
+			tmp = (*lst)->next;
+			ft_lstdelone(*lst, del);
+			(*lst) = tmp;
+		}
 	}
-	src1[i] = '\0';
-	return (src1);
 }
