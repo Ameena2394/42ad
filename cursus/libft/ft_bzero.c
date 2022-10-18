@@ -6,19 +6,19 @@
 /*   By: ammustaf <ammustaf@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 10:42:11 by ammustaf          #+#    #+#             */
-/*   Updated: 2022/09/21 10:42:13 by ammustaf         ###   ########.fr       */
+/*   Updated: 2022/10/18 11:52:10 by ammustaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	ft_bzero(void *str, unsigned int n)
+void	ft_bzero(void *s, size_t n)
 {
-	int	i;
+	size_t	i;
 	
 	i = 0;
 	while (i < n)
 	{
-		((char *)str)[i] = 0;
+		((char *)s)[i] = 0;
 		i++;
 	}
 }
