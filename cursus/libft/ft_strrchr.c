@@ -11,15 +11,15 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-char	*ft_strrchr(const char *str, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	int i;
-	i = ft_strlen(str);
-	char *strr = (char *) str;
+	i = ft_strlen(s);
+	char *strr = (char *) s;
 		
 	while(i >= 0)
 	{
-		if (str[i] == c)
+		if (s[i] == c)
 			return (strr + i);
 		i--;
 	}

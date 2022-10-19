@@ -11,13 +11,13 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-void	*ft_calloc(size_t nitems, size_t size)
+void	*ft_calloc(size_t count, size_t size)
 {
 	void *array;
 
-	array = (void *)malloc(size * nitems);
+	array = (void *)malloc(size * count);
 	if (!array)
 		return (NULL);
-	ft_bzero(array, size * nitems);
+	ft_bzero(array, size * count);
 	return ((void *)array);
 }
