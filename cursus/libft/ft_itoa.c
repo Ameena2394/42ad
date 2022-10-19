@@ -27,9 +27,10 @@ char			*ft_itoa(int n)
 	size_t	numbers;
 	long int	num;
 
+	numbers = sizelen(n);
 	str_num = (char *)malloc(sizeof(char) * (numbers + 1));
 	num = n;
-	numbers = sizelen(n);
+	
 	if (n < 0)
 	{
 		num *= -1;

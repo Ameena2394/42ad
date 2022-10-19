@@ -21,11 +21,11 @@ char	*ft_strdup(const char *s1)
 	i = 0;
 	src1 = (char *)malloc(sizeof(char) * (size + 1));
 
-	if (src1[i] = '\0')
+	if (!src1)
 		return NULL;
 	while (i <= size)
 	{
-		src1[i] = s1[I];
+		src1[i] = s1[i];
 		i++;
 	}
 	src1[i] = '\0';
