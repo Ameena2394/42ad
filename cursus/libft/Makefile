@@ -33,10 +33,10 @@ CFLAGS = -Wall -Wextra -Werror
 		${CC} ${CFLAGS} -g -c $< -o ${<:.c=.o}
 
 $(NAME): ${OBJS}
-		ar rcs ${NAME} ${OBJS}
+		${NAME} ${OBJS}
 
-bonus:	${OBJS} ${OBJSBONUS}
-		ar rcs ${NAME} ${OBJS} ${OBJSBONUS}
+bonus:	${OBJSBONUS}
+		${NAME} ${OBJSBONUS}
 
 all:	${NAME}
 
