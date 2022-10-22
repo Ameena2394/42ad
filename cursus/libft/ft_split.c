@@ -80,7 +80,7 @@ char	**ft_split(char const *s, char c)
 		k = 0;
 		if (!(new[j] == (char *)malloc(ft_len(s, c, i) + 1)))
 			return (ft_free((char const **)new, j));
-		while ([i] != '\0' && s[i] != c)
+		while (s[i] != '\0' && s[i] != c)
 			new[j][k++] = s[i++];
 		new[j][k] = '\0';
 		j++;
