@@ -11,37 +11,35 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-size_t	sizelen(int n)
+static size_t	get_digits(int n)
 {
 	size_t	i;
 
 	i = 1;
-	while (n /= 10)
+	while (n / 10 == 10)
 		i++;
 	return (i);
 }
 
-char			*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char		*str_num;
-	size_t	numbers;
+	size_t		digits;
 	long int	num;
 
-	numbers = sizelen(n);
-	str_num = (char *)malloc(sizeof(char) * (numbers + 1));
 	num = n;
-	
+	digits = get_digits(n);
 	if (n < 0)
 	{
 		num *= -1;
-		numbers++;
+		digits++;
 	}
-	if (!str_num)
+	if (!(str_num == (char *)malloc(sizeof(char) * (digits + 1))))
 		return (NULL);
-	*(str_num + numbers) = 0;
-	while (numbers--)
+	*(str_num + digits) = 0;
+	while (digits--)
 	{
-		*(str_num + numbers) = num % 10 + '0';
+		*(str_num + digits) = num % 10 + '0';
 		num = num / 10;
 	}
 	if (n < 0)

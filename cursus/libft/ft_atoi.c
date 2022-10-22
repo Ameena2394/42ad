@@ -30,6 +30,10 @@ int	ft_atoi(const char *str)
 	{
 		res = res * 10 + *str - '0';
 		str++;
+		if (res * sign > 2147483647)
+			return (-1);
+		if (res * sign < -2147483648)
+			return (0);
 	}
 	return (res * sign);
 }

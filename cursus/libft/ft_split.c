@@ -11,63 +11,80 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-int ft_count(char const *s, char c)
+int	ft_count(char const *s, char c)
 {
-    char last;
-    int i;
-    int j;
+	int	i;
+	int	count;
+	int	tmp;
 
-    last = c;
-    i = 0;
-    j = 0;
-    while (s[i] != '\0')
-    {
-        if (last == c && s[i] != c)
-        {
-            j++;
-        }
-        last = s[i];
-        i++;
-    }
-    return j;
+	i = 0;
+	count = 0;
+	tmp = 0;
+	if (s == '\0')
+		return (0);
+	while (s[i] != '\0')
+	{
+		if (s[i] == c)
+			tmp = 0;
+		else if (tmp == 0)
+		{
+			tmp = 1;
+			count++;
+		}
+		i++;
+	}
+	return (count);
 }
-char **ft_split(char const *s, char c)
-{
-    int i;
-    int k;
-    int y;
-    int z;
-    char *small;
-    char **big;
 
-    if (!(big = (char **)malloc((ft_count(s, c) + 1) * sizeof(*big))))
-        return (0);
-    i = 0;
-    y = 0;
-    while (s[i])
-    {
-        while (s[i] == c)
-            i++;
-        if (s[i] == '\0')
-            break;
-        k = 0;
-        while (s[i + k] != '\0' && s[i + k] != c)
-        {
-            k++;
-        }
-        if (!(small = (char *)malloc((k + 1) * sizeof(char))))
-            return (0);
-        z = 0;
-while (z < k)
-        {
-            small[z] = s[i];
-            z++;
-            i++;
-        }
-        small[k] = '\0';
-        big[y] = small;
-        y++;
-    }
-    big[y] = NULL;
-    return (big);
+int	ft_len(char const *s, char c, int i)
+{
+	int	len;
+
+	len = 0;
+	while (s[i] != '\0' && s[i] != c)
+	{
+		i++;
+		len++;
+	}
+	return (len);
+}
+
+char	**ft_free(char const **s, int i)
+{
+	while (i > 0)
+	{
+		i--;
+		free((void *)s[i]);
+	}
+	free(s);
+	return (NULL);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	int		i;
+	int		j;
+	int		k;
+	char	**new;
+
+	i = 0;
+	j = 0;
+	if (s == NULL)
+		return (NULL);
+	if (!(new == (char **)malloc(sizeof(char *) * (ft_count(s, c) + 1))))
+		return (NULL);
+	while (s[i] != '\0' && j < ft_count(s, c))
+	{
+		while (s[i] == c)
+			i++;
+		k = 0;
+		if (!(new[j] == (char *)malloc(ft_len(s, c, i) + 1)))
+			return (ft_free((char const **)new, j));
+		while ([i] != '\0' && s[i] != c)
+			new[j][k++] = s[i++];
+		new[j][k] = '\0';
+		j++;
+	}
+	new[j] = 0;
+	return (new);
 }

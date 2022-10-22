@@ -13,7 +13,7 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void *array;
+	void	*array;
 
 	array = (void *)malloc(size * count);
 	if (!array)
