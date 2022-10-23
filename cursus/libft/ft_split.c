@@ -11,80 +11,63 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_count(char const *s, char c)
+static int	count_words(const char *str, char c)
 {
-	int	i;
-	int	count;
-	int	tmp;
+	int i;
+	int trigger;
 
 	i = 0;
-	count = 0;
-	tmp = 0;
-	if (s == '\0')
-		return (0);
-	while (s[i] != '\0')
+	trigger = 0;
+	while (*str)
 	{
-		if (s[i] == c)
-			tmp = 0;
-		else if (tmp == 0)
+		if (*str != c && trigger == 0)
 		{
-			tmp = 1;
-			count++;
+			trigger = 1;
+			i++;
+		}
+		else if (*str == c)
+			trigger = 0;
+		str++;
+	}
+	return (i);
+}
+
+static char	*word_dup(const char *str, int start, int finish)
+{
+	char	*word;
+	int		i;
+
+	i = 0;
+	word = malloc((finish - start + 1) * sizeof(char));
+	while (start < finish)
+		word[i++] = str[start++];
+	word[i] = '\0';
+	return (word);
+}
+
+char		**ft_split(char const *s, char c)
+{
+	size_t	i;
+	size_t	j;
+	int		index;
+	char	**split;
+
+	if (!s || !(split = malloc((count_words(s, c) + 1) * sizeof(char *))))
+		return (0);
+	i = 0;
+	j = 0;
+	index = -1;
+	while (i <= ft_strlen(s))
+	{
+		if (s[i] != c && index < 0)
+			index = i;
+		else if ((s[i] == c || i == ft_strlen(s)) && index >= 0)
+		{
+			split[j++] = word_dup(s, index, i);
+			index = -1;
 		}
 		i++;
 	}
-	return (count);
-}
-
-int	ft_len(char const *s, char c, int i)
-{
-	int	len;
-
-	len = 0;
-	while (s[i] != '\0' && s[i] != c)
-	{
-		i++;
-		len++;
-	}
-	return (len);
-}
-
-char	**ft_free(char const **s, int i)
-{
-	while (i > 0)
-	{
-		i--;
-		free((void *)s[i]);
-	}
-	free(s);
-	return (NULL);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	int		i;
-	int		j;
-	int		k;
-	char	**new;
-
-	i = 0;
-	j = 0;
-	if (s == NULL)
-		return (NULL);
-	if (!(new == (char **)malloc(sizeof(char *) * (ft_count(s, c) + 1))))
-		return (NULL);
-	while (s[i] != '\0' && j < ft_count(s, c))
-	{
-		while (s[i] == c)
-			i++;
-		k = 0;
-		if (!(new[j] == (char *)malloc(ft_len(s, c, i) + 1)))
-			return (ft_free((char const **)new, j));
-		while (s[i] != '\0' && s[i] != c)
-			new[j][k++] = s[i++];
-		new[j][k] = '\0';
-		j++;
-	}
-	new[j] = 0;
-	return (new);
+	split[j] = 0;
+	return (split);
 }

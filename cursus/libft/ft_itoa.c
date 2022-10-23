@@ -11,38 +11,55 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-static size_t	get_digits(int n)
+static int	ft_get_size(int n)
 {
-	size_t	i;
+	int size;
 
-	i = 1;
-	while (n / 10 == 10)
-		i++;
-	return (i);
+	size = 0;
+	if (n <= 0)
+		size++;
+	while (n != 0)
+	{
+		n = n / 10;
+		size++;
+	}
+	return (size);
 }
 
-char	*ft_itoa(int n)
+static void	ft_fill_res(int size, int offset, int n, char *res)
 {
-	char		*str_num;
-	size_t		digits;
-	long int	num;
+	while (size > offset)
+	{
+		res[size - 1] = n % 10 + '0';
+		n = n / 10;
+		size--;
+	}
+}
 
-	num = n;
-	digits = get_digits(n);
+char		*ft_itoa(int n)
+{
+	int		offset;
+	int		size;
+	char	*res;
+
+	offset = 0;
+	size = ft_get_size(n);
+	if (!(res = (char *)malloc(sizeof(char) * size + 1)))
+		return (0);
+	if (n == -2147483648)
+	{
+		res[0] = '-';
+		res[1] = '2';
+		n = 147483648;
+		offset = 2;
+	}
 	if (n < 0)
 	{
-		num *= -1;
-		digits++;
+		res[0] = '-';
+		offset = 1;
+		n = -n;
 	}
-	if (!(str_num == (char *)malloc(sizeof(char) * (digits + 1))))
-		return (NULL);
-	*(str_num + digits) = 0;
-	while (digits--)
-	{
-		*(str_num + digits) = num % 10 + '0';
-		num = num / 10;
-	}
-	if (n < 0)
-		*(str_num + 0) = '-';
-	return (str_num);
+	ft_fill_res(size, offset, n, res);
+	res[size] = '\0';
+	return (res);
 }

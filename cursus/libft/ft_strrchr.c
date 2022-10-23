@@ -13,15 +13,27 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int i;
-	i = ft_strlen(s);
-	char *strr = (char *) s;
-		
-	while(i >= 0)
+	int		i;
+	char	*l;
+
+	if (s[0] == 0 && c == 0)
+		return ((char *)&s[0]);
+	else if (s[0] == 0)
+		return (NULL);
+	i = 0;
+	l = NULL;
+	if (s != NULL)
 	{
-		if (s[i] == c)
-			return (strr + i);
-		i--;
+		if (s[i] == 0)
+			return (l= (char *)&s[i]);
+		while (s[i])
+		{
+			if (s[i] == (char)c)
+				l= (char *)&s[i];
+			i++;
+		}
+		if (c == 0)
+			return (l= (char *)&s[i]);
 	}
-	return NULL;
+	return (l);
 }
