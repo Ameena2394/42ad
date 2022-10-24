@@ -13,11 +13,11 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void	*array;
+	void *ptr;
 
-	array = (char *)malloc(sizeof(*array) * count * size);
-	if (!array)
-		return (NULL);
-	ft_memset(array, 0, size * count);
-	return (array);
+	ptr = malloc(count * size);
+	if (ptr == NULL)
+		return (ptr);
+	ft_bzero(ptr, size * count);
+	return (ptr);
 }
