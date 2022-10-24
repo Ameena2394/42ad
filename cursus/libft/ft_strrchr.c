@@ -11,29 +11,18 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *str, int c)
 {
-	int		i;
-	char	*l;
+	char	*ch;
 
-	if (s[0] == 0 && c == 0)
-		return ((char *)&s[0]);
-	else if (s[0] == 0)
-		return (NULL);
-	i = 0;
-	l = NULL;
-	if (s != NULL)
+	ch = NULL;
+	while (*str != '\0')
 	{
-		if (s[i] == 0)
-			return (l= (char *)&s[i]);
-		while (s[i])
-		{
-			if (s[i] == (char)c)
-				l= (char *)&s[i];
-			i++;
-		}
-		if (c == 0)
-			return (l= (char *)&s[i]);
+		if (*str == (char) c)
+			ch = (char *) str;
+		str++;
 	}
-	return (l);
+	if ((char) c == *str)
+		return ((char *) str);
+	return (ch);
 }
