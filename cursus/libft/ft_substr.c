@@ -23,6 +23,8 @@ unsigned int	i;
 		i++;
 	if (start > i)
 		len = 0;
+	if (len > i - start)
+		len = i - start;
 	substr = (char *)malloc(sizeof(char) * len + 1);
 	if (!substr)
 		return (substr);
