@@ -13,20 +13,19 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*s;
-	char	*d;
+	int		len1;
+	int		len2;
+	char	*str;
 
-	s = (char *)malloc(sizeof(s) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (s && s1 && s2)
-	{
-		d = s;
-		while (*s1 != '\0')
-			*s++ = *s1++;
-		while (*s2 != '\0')
-			*s++ = *s2++;
-		*s = '\0';
-	}
-	else
+	if (!s1 || !s2)
 		return (NULL);
-	return (d);
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	str = (char *)malloc(sizeof(char) * (len1 + len2 + 1));
+	if (!str)
+		return (NULL);
+	ft_memcpy(str, s1, len1);
+	ft_memcpy(str + len1, s2, len2);
+	str[len1 + len2] = '\0';
+	return (str);
 }
