@@ -13,7 +13,7 @@
 
 static int	ft_get_size(int n)
 {
-	int size;
+	int	size;
 
 	size = 0;
 	if (n <= 0)
@@ -36,7 +36,7 @@ static void	ft_fill_res(int size, int offset, int n, char *res)
 	}
 }
 
-char		*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	int		offset;
 	int		size;
@@ -44,7 +44,7 @@ char		*ft_itoa(int n)
 
 	offset = 0;
 	size = ft_get_size(n);
-	if (!(res = (char *)malloc(sizeof(char) * size + 1)))
+	if (!(res == (char *)malloc(sizeof(char) * size + 1)))
 		return (0);
 	if (n == -2147483648)
 	{

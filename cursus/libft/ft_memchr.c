@@ -1,4 +1,3 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -14,17 +13,18 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t			i;
+	size_t	i;
+	char	*str;
+	char	d;
 
 	i = 0;
-	unsigned char *str = (unsigned char *) s;
-	unsigned char d = (unsigned char) c;
-
+	*str = (char *) s;
+	d = (char) c;
 	while (i < n)
 	{
 		if (str[i] == d)
 			return (str + i);
 		i++;
 	}
-	return 0;
+	return (0);
 }

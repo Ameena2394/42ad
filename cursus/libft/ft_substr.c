@@ -13,8 +13,8 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-unsigned int	i;
-	char			*substr;
+	unsigned int	i;
+	unsigned char	*substr;
 
 	if (!s)
 		return (NULL);
