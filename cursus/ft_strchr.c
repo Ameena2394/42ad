@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ammustaf <ammustaf@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/21 18:18:06 by ammustaf          #+#    #+#             */
-/*   Updated: 2022/09/21 18:18:16 by ammustaf         ###   ########.fr       */
+/*   Created: 2022/09/21 10:46:42 by ammustaf          #+#    #+#             */
+/*   Updated: 2022/09/21 10:46:43 by ammustaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+/*char	*ft_strchr(const char *s, int c)
 {
-	unsigned int	i;
-	unsigned char	*substr;
-
-	if (!s)
-		return (NULL);
-	i = 0;
-	while (s[i])
-		i++;
-	if (start > i)
-		len = 0;
-	if (len > i - start)
-		len = i - start;
-	substr = (char *)malloc(sizeof(char) * len + 1);
-	if (!substr)
-		return (substr);
-	i = 0;
-	while (i < len)
+	while (*s != '\0')
 	{
-		substr[i] = s[start + i];
-		i++;
+		if ((unsigned char)*s == (unsigned char)c)
+			return ((char *)s);
+		s++;
 	}
-	substr[i] = '\0';
-	return (substr);
+	if (c == 0)
+		return ((char *)s);
+	return (NULL);
+}*/
+char	*ft_strchr(const char *s, int c)
+{
+	while (*s != (unsigned char)c)
+		if (!*s++)
+			return (0);
+	return ((char *)s);
 }

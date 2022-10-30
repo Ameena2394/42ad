@@ -52,7 +52,7 @@ char	**ft_split(char const *s, char c)
 	int		index;
 	char	**split;
 
-	if (!s || !(split == malloc((count_words(s, c) + 1) * sizeof(char *))))
+	if (!s || !(split = malloc((count_words(s, c) + 1) * sizeof(char *))))
 		return (0);
 	i = 0;
 	j = 0;
